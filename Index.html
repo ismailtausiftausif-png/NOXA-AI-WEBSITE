@@ -1,0 +1,764 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#030611">
+  <meta name="description" content="NOXA AI is coming soon. Discover a smarter future for learning, coding, writing and problem-solving.">
+  <title>NOXA AI — Coming Soon</title>
+
+  <style>
+    :root {
+      --background: #030611;
+      --panel: #0a1021;
+      --blue: #168cff;
+      --purple: #8247ff;
+      --text: #f6f8ff;
+      --muted: #9ca9c5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 15% 20%, #10214a 0%, transparent 40%),
+        radial-gradient(ellipse at 85% 45%, #201044 0%, transparent 35%),
+        var(--background);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: relative;
+      z-index: 5;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      background: rgba(3, 6, 17, 0.72);
+    }
+
+    nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .brand-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      font-size: 24px;
+      color: white;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      box-shadow: 0 0 28px rgba(22,140,255,0.3);
+    }
+
+    .brand span:last-child {
+      color: var(--blue);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: #c0c9dc;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-cta {
+      padding: 12px 19px;
+      border: 1px solid rgba(22,140,255,0.65);
+      border-radius: 9px;
+      color: white !important;
+      background: rgba(22,140,255,0.09);
+    }
+
+    /* HERO SECTION */
+
+    .hero {
+      min-height: 660px;
+      padding: 95px 0 100px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px;
+      margin-bottom: 26px;
+      border: 1px solid rgba(22,140,255,0.25);
+      border-radius: 30px;
+      color: #91caff;
+      background: rgba(22,140,255,0.07);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #42e7b4;
+      box-shadow: 0 0 12px #42e7b4;
+    }
+
+    h1 {
+      font-size: clamp(52px, 7vw, 86px);
+      line-height: 0.98;
+      letter-spacing: -4px;
+      font-weight: 900;
+    }
+
+    .gradient-text {
+      display: block;
+      padding-bottom: 8px;
+      background: linear-gradient(90deg, #168cff, #9b72ff 75%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      margin-top: 25px;
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.6;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .description {
+      max-width: 480px;
+      margin-top: 17px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 22px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .button-primary {
+      color: white;
+      background: linear-gradient(110deg, #168cff, #7546ff);
+      box-shadow: 0 8px 30px rgba(65,90,255,0.24);
+    }
+
+    .button-secondary {
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #dce5fa;
+      background: rgba(255,255,255,0.035);
+    }
+
+    .small-note {
+      margin-top: 17px;
+      color: #73809c;
+      font-size: 12px;
+    }
+
+    /* GLOWING LOGO ARTWORK */
+
+    .visual {
+      min-height: 390px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .orb-glow {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      z-index: -1;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #168cff, #8247ff);
+      filter: blur(100px);
+      opacity: 0.32;
+    }
+
+    .orbit {
+      width: min(350px, 85vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      position: relative;
+      border: 1px solid rgba(90,145,255,0.2);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(22,140,255,0.12), transparent 60%);
+      box-shadow:
+        inset 0 0 65px rgba(22,140,255,0.06),
+        0 0 70px rgba(85,62,255,0.08);
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      inset: 23px;
+      border: 1px solid rgba(130,71,255,0.28);
+      border-radius: 50%;
+    }
+
+    .orbit::after {
+      inset: 48px;
+      border-color: rgba(22,140,255,0.23);
+    }
+
+    .core {
+      width: 150px;
+      height: 150px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 35px;
+      transform: rotate(-8deg);
+      background: linear-gradient(145deg, #168cff, #6238e8 80%);
+      box-shadow:
+        0 0 45px rgba(22,140,255,0.45),
+        inset 0 1px 1px rgba(255,255,255,0.45);
+    }
+
+    .core span {
+      transform: rotate(8deg);
+      color: white;
+      font-size: 85px;
+      font-weight: 900;
+      letter-spacing: -8px;
+      text-shadow: 0 4px 25px rgba(0,0,0,0.18);
+    }
+
+    .floating-label {
+      position: absolute;
+      padding: 11px 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      color: #dce8ff;
+      background: rgba(8,15,34,0.88);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .label-top {
+      top: 12%;
+      right: -2%;
+    }
+
+    .label-bottom {
+      bottom: 12%;
+      left: -2%;
+    }
+
+    /* FEATURES */
+
+    .section {
+      padding: 85px 0;
+      scroll-margin-top: 30px;
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin: 0 auto 45px;
+      text-align: center;
+    }
+
+    .section-kicker {
+      margin-bottom: 14px;
+      color: #68b6ff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      letter-spacing: -1.5px;
+    }
+
+    .section-description {
+      margin-top: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px;
+    }
+
+    .feature-card {
+      min-height: 225px;
+      padding: 25px 21px;
+      border: 1px solid rgba(132,158,220,0.13);
+      border-radius: 17px;
+      background: linear-gradient(145deg, rgba(14,24,49,0.92), rgba(7,12,27,0.85));
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(22,140,255,0.5);
+    }
+
+    .feature-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 24px;
+      border: 1px solid rgba(22,140,255,0.2);
+      border-radius: 13px;
+      background: rgba(22,140,255,0.1);
+      color: #79c1ff;
+      font-size: 23px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 11px;
+      font-size: 17px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* ABOUT */
+
+    .about-panel {
+      padding: 48px;
+      border: 1px solid rgba(132,158,220,0.15);
+      border-radius: 22px;
+      background:
+        radial-gradient(ellipse at 0% 0%, rgba(22,140,255,0.11), transparent 55%),
+        rgba(9,15,32,0.8);
+      text-align: center;
+    }
+
+    .about-panel p {
+      max-width: 720px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    /* COMING SOON */
+
+    .coming-soon {
+      padding: 35px 0 95px;
+      text-align: center;
+    }
+
+    .coming-box {
+      padding: 42px 20px;
+      border: 1px solid rgba(130,71,255,0.3);
+      border-radius: 20px;
+      background:
+        radial-gradient(ellipse at center, rgba(78,49,160,0.18), transparent 70%),
+        rgba(8,12,27,0.7);
+    }
+
+    .coming-pill {
+      display: inline-block;
+      padding: 10px 17px;
+      border: 1px solid rgba(130,71,255,0.5);
+      border-radius: 30px;
+      background: rgba(130,71,255,0.12);
+      color: #c7b4ff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    .coming-box h2 {
+      margin-top: 22px;
+    }
+
+    .coming-box p {
+      margin-top: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      color: #77839d;
+      font-size: 12px;
+    }
+
+    .footer-brand {
+      color: #dce5fa;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    /* MOBILE RESPONSIVE DESIGN */
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 75px;
+        gap: 15px;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .visual {
+        min-height: 350px;
+      }
+
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      nav {
+        min-height: 75px;
+        flex-wrap: wrap;
+        padding: 15px 0;
+      }
+
+      .brand {
+        font-size: 19px;
+      }
+
+      .brand-icon {
+        width: 37px;
+        height: 37px;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .nav-links a {
+        font-size: 10px;
+        letter-spacing: 0.7px;
+      }
+
+      .nav-cta {
+        padding: 9px 11px;
+      }
+
+      .hero {
+        padding: 65px 0 55px;
+      }
+
+      h1 {
+        font-size: 56px;
+        letter-spacing: -3px;
+      }
+
+      .tagline {
+        font-size: 16px;
+      }
+
+      .description {
+        font-size: 14px;
+      }
+
+      .visual {
+        min-height: 310px;
+      }
+
+      .orbit {
+        width: 280px;
+      }
+
+      .core {
+        width: 120px;
+        height: 120px;
+        border-radius: 29px;
+      }
+
+      .core span {
+        font-size: 70px;
+      }
+
+      .label-top {
+        right: -1%;
+      }
+
+      .label-bottom {
+        left: -1%;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        min-height: auto;
+      }
+
+      .about-panel {
+        padding: 30px 20px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#home" aria-label="NOXA AI home">
+        <span class="brand-icon">N</span>
+        <span>NOXA <span>AI</span></span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#home">HOME</a>
+        <a href="#features">FEATURES</a>
+        <a href="#about">ABOUT</a>
+        <a class="nav-cta" href="#coming-soon">COMING SOON</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          THE NEXT GENERATION
+        </div>
+
+        <h1>
+          MEET
+          <span class="gradient-text">NOXA AI</span>
+        </h1>
+
+        <p class="tagline">SMARTER ANSWERS. FASTER.</p>
+
+        <p class="description">
+          A new AI experience is on its way. From learning and coding
+          to writing and problem-solving, discover a smarter way to
+          bring your ideas to life.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#coming-soon">
+            ✦ &nbsp; COMING SOON
+          </a>
+
+          <a class="button button-secondary" href="#features">
+            EXPLORE FEATURES &nbsp; ↓
+          </a>
+        </div>
+
+        <p class="small-note">
+          A new chapter in AI is almost here.
+        </p>
+      </div>
+
+      <div class="visual" aria-label="NOXA AI glowing logo artwork">
+        <div class="orb-glow"></div>
+
+        <div class="orbit">
+          <div class="core">
+            <span>N</span>
+          </div>
+        </div>
+
+        <div class="floating-label label-top">
+          ✦ INTELLIGENCE
+        </div>
+
+        <div class="floating-label label-bottom">
+          ◈ YOUR IDEAS. MORE POSSIBILITIES.
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="features">
+      <div class="section-heading">
+        <p class="section-kicker">BUILT FOR WHAT'S NEXT</p>
+        <h2>One AI. More Possibilities.</h2>
+        <p class="section-description">
+          Meet the ideas behind NOXA AI. We're working towards an
+          experience designed to help you think, create and learn.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-icon">✧</div>
+          <h3>Smart Answers</h3>
+          <p>
+            Explore questions, understand difficult topics and discover
+            useful explanations.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">⌘</div>
+          <h3>Coding Assistant</h3>
+          <p>
+            Get help understanding code, exploring programming ideas
+            and building projects.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">∑</div>
+          <h3>Math & Learning</h3>
+          <p>
+            Work through maths problems and make challenging concepts
+            easier to understand.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">✎</div>
+          <h3>Creative Writing</h3>
+          <p>
+            Develop ideas, organise your thoughts and get help with
+            writing and creativity.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container" id="about">
+      <div class="about-panel">
+        <p class="section-kicker">ABOUT NOXA</p>
+        <h2>Designed for curious minds.</h2>
+        <p>
+          NOXA AI is a project built around making artificial intelligence
+          more useful, approachable and accessible. Our vision is to bring
+          learning, creativity, coding and problem-solving together in
+          one place. This website is the beginning of that journey.
+        </p>
+      </div>
+    </section>
+
+    <section class="coming-soon container" id="coming-soon">
+      <div class="coming-box">
+        <span class="coming-pill">COMING SOON</span>
+        <h2>The future is getting closer.</h2>
+        <p>
+          NOXA AI is in development. Stay tuned for what's next.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span class="footer-brand">NOXA AI</span>
+      <span>SMARTER ANSWERS. FASTER.</span>
+      <span>© 2026 NOXA AI. All rights reserved.</span>
+    </div>
+  </footer>
+</body>
+</html>
